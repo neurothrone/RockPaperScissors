@@ -1,0 +1,41 @@
+﻿@page "/"
+@using RockPaperScissors.Core
+@using RockPaperScissors.Core.Domain
+
+<PageTitle>Rock Paper Scissors</PageTitle>
+
+<h1>Rock Paper Scissors</h1>
+
+@if (!_isPlaying)
+{
+    <button class="btn btn-primary" @onclick="StartGame">Start Game</button>
+}
+else
+{
+    <div class="justify-content-evenly">
+        <p>Player</p>
+        <p role="status">@_game.PlayerScore - @_game.ComputerScore</p>
+        <p>Computer</p>
+    </div>
+
+    <button class="btn btn-primary" @onclick="() => PlayHand(Hand.Rock)">🪨</button>
+    <button class="btn btn-primary" @onclick="() => PlayHand(Hand.Paper)">📜</button>
+    <button class="btn btn-primary" @onclick="() => PlayHand(Hand.Scissors)">✂️</button>
+}
+
+@code {
+
+    private bool _isPlaying = false;
+    private Game _game = new();
+
+    private void StartGame()
+    {
+        _isPlaying = true;
+    }
+
+    private void PlayHand(Hand hand)
+    {
+        _game.PlayRound(hand);
+    }
+
+}
