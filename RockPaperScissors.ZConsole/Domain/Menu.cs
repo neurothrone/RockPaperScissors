@@ -20,12 +20,12 @@ class Menu
         Console.WriteLine("-----------------");
     }
 
-    public MainMenuChoice ReadMainMenuChoice()
+    public MainMenuSelection ReadMainMenuChoice()
     {
         while (true)
         {
-            if (Enum.TryParse(Console.ReadLine(), out MainMenuChoice selection) &&
-                Enum.IsDefined(typeof(MainMenuChoice), selection))
+            if (Enum.TryParse(Console.ReadLine(), out MainMenuSelection selection) &&
+                Enum.IsDefined(typeof(MainMenuSelection), selection))
                 return selection;
 
             Console.WriteLine("Invalid input, try again.");

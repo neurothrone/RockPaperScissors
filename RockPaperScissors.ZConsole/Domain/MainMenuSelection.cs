@@ -1,6 +1,6 @@
 namespace RockPaperScissors.ZConsole.Domain;
 
-public enum MainMenuChoice
+public enum MainMenuSelection
 {
     Quit = 0,
     Play = 1,

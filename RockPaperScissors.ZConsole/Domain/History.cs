@@ -1,16 +1,20 @@
+using RockPaperScissors.ZConsole.Services;
 using RockPaperScissors.ZConsole.Utils;
 
 namespace RockPaperScissors.ZConsole.Domain;
 
 class History
 {
-    private readonly List<string> _history = [];
+    private const string HistoryFilePath = "/Users/zane/history.json";
+
+    private readonly StorageService _storageService = new();
+    private List<GameOutcome> _history = [];
 
     private bool HasHistory() => _history.Count != 0;
 
-    public void AddToHistory(string item)
+    public void AddToHistory(GameOutcome outcome)
     {
-        _history.Add(item);
+        _history.Add(outcome);
     }
 
     public void PrintHistory()
@@ -22,10 +26,21 @@ class History
         }
 
         ConsoleHelper.WriteLine("History\n----------------", ConsoleColor.Yellow);
-        for (int i = 0; i < _history.Count; i++)
-        {
-            Console.WriteLine($"{i + 1}. {_history[i]}");
-        }
+        foreach (var outcome in _history)
+            Console.WriteLine(outcome);
         ConsoleHelper.WriteLine("----------------", ConsoleColor.Yellow);
+    }
+
+    public void SaveToFile()
+    {
+        if (HasHistory())
+            _storageService.WriteToJsonFile(HistoryFilePath, _history);
+    }
+
+    public void LoadFromFile()
+    {
+        var history = _storageService.ReadFromJsonFile<List<GameOutcome>>(HistoryFilePath);
+        if (history is not null)
+            _history = history;
     }
 }
