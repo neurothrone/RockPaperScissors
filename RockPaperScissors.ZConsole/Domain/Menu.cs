@@ -20,7 +20,7 @@ class Menu
         Console.WriteLine("-----------------");
     }
 
-    public MainMenuSelection ReadMainMenuChoice()
+    public MainMenuSelection ReadMainMenuInput()
     {
         while (true)
         {

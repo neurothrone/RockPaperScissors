@@ -20,7 +20,7 @@ public class ConsoleApp
         {
             _menu.PrintMainMenu();
 
-            switch (_menu.ReadMainMenuChoice())
+            switch (_menu.ReadMainMenuInput())
             {
                 case MainMenuSelection.Play:
                     Play();
