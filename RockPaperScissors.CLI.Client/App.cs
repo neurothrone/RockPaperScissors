@@ -1,12 +1,12 @@
-using RockPaperScissors.Console.Client.Domain;
-using RockPaperScissors.Console.Client.Utils;
+using RockPaperScissors.CLI.Client.Domain;
+using RockPaperScissors.CLI.Client.Utils;
 using RockPaperScissors.Core;
 using RockPaperScissors.Core.Domain;
 using RockPaperScissors.Core.Utils;
 
-namespace RockPaperScissors.Console.Client;
+namespace RockPaperScissors.CLI.Client;
 
-public class ConsoleApp
+public class App
 {
     private readonly Game _game = new();
     private readonly History _history = new();
@@ -30,7 +30,7 @@ public class ConsoleApp
                     break;
                 case MainMenuSelection.Quit:
                 default:
-                    System.Console.WriteLine("Terminating program...");
+                    Quit();
                     return;
             }
         }
@@ -38,12 +38,12 @@ public class ConsoleApp
 
     private string GetGameInput()
     {
-        System.Console.WriteLine("Select your hand: (1) {0}, (2) {1}, (3) {2} or (0) to Quit.",
+        Console.WriteLine("Select your hand: (1) {0}, (2) {1}, (3) {2} or (0) to Quit.",
             HandHelper.GetHandSymbol(Hand.Rock),
             HandHelper.GetHandSymbol(Hand.Paper),
             HandHelper.GetHandSymbol(Hand.Scissors));
 
-        return System.Console.ReadLine() ?? string.Empty;
+        return Console.ReadLine() ?? string.Empty;
     }
 
     private GameSelection ConvertToGameSelection(string input)
@@ -60,7 +60,9 @@ public class ConsoleApp
 
     private void Play()
     {
-        _menu.PrintGameMenu();
+        Console.Clear();
+        Console.WriteLine("Playing Rock Paper Scissors!");
+        ConsoleHelper.WriteDividerLine();
 
         while (true)
         {
@@ -70,7 +72,7 @@ public class ConsoleApp
                 case GameSelection.Quit:
                     return;
                 case GameSelection.Invalid:
-                    System.Console.WriteLine("Invalid input.");
+                    Console.WriteLine("Invalid input.");
                     continue;
                 case GameSelection.Rock:
                 case GameSelection.Paper:
@@ -97,25 +99,28 @@ public class ConsoleApp
 
     private void ProcessRound(Round round)
     {
-        System.Console.WriteLine("Score:\nPlayer {0} - {1} Computer", _game.PlayerScore, _game.ComputerScore);
+        Console.Clear();
+        Console.WriteLine("Player {0} - {1} Computer", _game.PlayerScore, _game.ComputerScore);
 
         switch (round.GetWinner())
         {
             case Winner.Player:
-                System.Console.WriteLine("Player prevails with {0} over Computer with {1}",
+                Console.WriteLine("Player prevails with {0} over Computer with {1}",
                     HandHelper.GetHandSymbol(round.PlayerHand),
                     HandHelper.GetHandSymbol(round.ComputerHand));
                 break;
             case Winner.Computer:
-                System.Console.WriteLine("Computer prevails with {0} over Player with {1}",
+                Console.WriteLine("Computer prevails with {0} over Player with {1}",
                     HandHelper.GetHandSymbol(round.ComputerHand),
                     HandHelper.GetHandSymbol(round.PlayerHand));
                 break;
             case Winner.None:
             default:
-                System.Console.WriteLine("Draw! Are you even trying?");
+                Console.WriteLine("Draw! Are you even trying?");
                 break;
         }
+
+        ConsoleHelper.WriteDividerLine();
     }
 
     private void ProcessEndGame()
@@ -133,10 +138,29 @@ public class ConsoleApp
 
         _history.AddToHistory(gameOutcome);
         _history.SaveToFile();
+
+        PauseAndClear();
     }
 
     private void DisplayHistory()
     {
+        Console.Clear();
         _history.PrintHistory();
+
+        PauseAndClear();
+    }
+
+    private void Quit()
+    {
+        Console.Clear();
+        Console.WriteLine("Terminating program...");
+        Environment.Exit(0);
+    }
+
+    private void PauseAndClear()
+    {
+        Console.WriteLine("\nPress any key to return to main menu.");
+        Console.ReadKey();
+        Console.Clear();
     }
 }

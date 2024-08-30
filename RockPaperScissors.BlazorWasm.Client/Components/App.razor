@@ -1,7 +1,7 @@
-﻿@using RockPaperScissors.Components.Layout
+﻿@using RockPaperScissors.Blazor.Components.Layout
 
 <Router AppAssembly="@typeof(App).Assembly"
-        AdditionalAssemblies="new[] { typeof(RockPaperScissors.Components._Imports).Assembly }">
+        AdditionalAssemblies="new[] { typeof(RockPaperScissors.Blazor.Components._Imports).Assembly }">
     <Found Context="routeData">
         <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)"/>
         <FocusOnNavigate RouteData="@routeData" Selector="h1"/>

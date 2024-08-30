@@ -1,6 +1,6 @@
 using RockPaperScissors.Core.Domain;
 
-namespace RockPaperScissors.Console.Client.Domain;
+namespace RockPaperScissors.CLI.Client.Domain;
 
 class GameOutcome
 {

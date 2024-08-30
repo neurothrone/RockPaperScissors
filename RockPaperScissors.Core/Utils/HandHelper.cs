@@ -33,10 +33,16 @@ public static class HandHelper
         _ => nameof(Hand.Scissors)
     };
 
-    public static string GetHandSymbol(Hand hand) => hand switch
+    public static string GetHandSymbol(Hand hand)
     {
-        Hand.Rock => "\ud83e\udea8",
-        Hand.Paper => "\ud83d\udcdc",
-        _ => "\u2702\ufe0f"
-    };
+        if (OperatingSystem.IsWindows())
+            return GetHandName(hand);
+
+        return hand switch
+        {
+            Hand.Rock => "\ud83e\udea8",
+            Hand.Paper => "\ud83d\udcdc",
+            _ => "\u2702\ufe0f"
+        };
+    }
 }

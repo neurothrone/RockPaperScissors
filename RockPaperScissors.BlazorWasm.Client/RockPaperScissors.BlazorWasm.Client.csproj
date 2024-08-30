@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+        <RootNamespace>RockPaperScissors.BlazorWasm.Client</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -17,18 +18,18 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\RockPaperScissors.Components\RockPaperScissors.Components.csproj" />
+        <ProjectReference Include="..\RockPaperScissors.Blazor.Components\RockPaperScissors.Blazor.Components.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <_ContentIncludedByDefault Remove="Layout\MainLayout.razor" />
-      <_ContentIncludedByDefault Remove="Layout\NavMenu.razor" />
-      <_ContentIncludedByDefault Remove="Pages\Counter.razor" />
-      <_ContentIncludedByDefault Remove="Pages\Home.razor" />
-      <_ContentIncludedByDefault Remove="Pages\Weather.razor" />
-      <_ContentIncludedByDefault Remove="wwwroot\css\app.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css" />
-      <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css.map" />
+        <_ContentIncludedByDefault Remove="Layout\MainLayout.razor"/>
+        <_ContentIncludedByDefault Remove="Layout\NavMenu.razor"/>
+        <_ContentIncludedByDefault Remove="Pages\Counter.razor"/>
+        <_ContentIncludedByDefault Remove="Pages\Home.razor"/>
+        <_ContentIncludedByDefault Remove="Pages\Weather.razor"/>
+        <_ContentIncludedByDefault Remove="wwwroot\css\app.css"/>
+        <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css"/>
+        <_ContentIncludedByDefault Remove="wwwroot\css\bootstrap\bootstrap.min.css.map"/>
     </ItemGroup>
 
 </Project>

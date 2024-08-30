@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace RockPaperScissors.Console.Client.Services;
+namespace RockPaperScissors.CLI.Client.Services;
 
 public class StorageService
 {

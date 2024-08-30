@@ -1,7 +1,7 @@
-using RockPaperScissors.Console.Client.Services;
-using RockPaperScissors.Console.Client.Utils;
+using RockPaperScissors.CLI.Client.Services;
+using RockPaperScissors.CLI.Client.Utils;
 
-namespace RockPaperScissors.Console.Client.Domain;
+namespace RockPaperScissors.CLI.Client.Domain;
 
 class History
 {
@@ -21,14 +21,16 @@ class History
     {
         if (!HasHistory())
         {
-            ConsoleHelper.WriteLine("No history available yet...\n----------------", ConsoleColor.Yellow);
+            ConsoleHelper.WriteLine("No history available yet.", ConsoleColor.Yellow);
+            ConsoleHelper.WriteDividerLine(ConsoleColor.Yellow);
             return;
         }
 
-        ConsoleHelper.WriteLine("History\n----------------", ConsoleColor.Yellow);
+        ConsoleHelper.WriteLine("History", ConsoleColor.Yellow);
+        ConsoleHelper.WriteDividerLine(ConsoleColor.Yellow);
         foreach (var outcome in _history)
-            System.Console.WriteLine(outcome);
-        ConsoleHelper.WriteLine("----------------", ConsoleColor.Yellow);
+            Console.WriteLine(outcome);
+        ConsoleHelper.WriteDividerLine(ConsoleColor.Yellow);
     }
 
     public void SaveToFile()

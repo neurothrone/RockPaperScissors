@@ -4,6 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <RootNamespace>RockPaperScissors.Blazor.Components</RootNamespace>
     </PropertyGroup>
 
 
@@ -16,18 +17,18 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\RockPaperScissors.Core\RockPaperScissors.Core.csproj" />
+        <ProjectReference Include="..\RockPaperScissors.Core\RockPaperScissors.Core.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Widgets\" />
-      <Folder Include="wwwroot\" />
+        <Folder Include="Widgets\"/>
+        <Folder Include="wwwroot\"/>
     </ItemGroup>
 
     <ItemGroup>
-      <AdditionalFiles Include="Layout\MainLayout.razor" />
-      <AdditionalFiles Include="Layout\NavMenu.razor" />
-      <AdditionalFiles Include="Pages\Home.razor" />
+        <AdditionalFiles Include="Layout\MainLayout.razor"/>
+        <AdditionalFiles Include="Layout\NavMenu.razor"/>
+        <AdditionalFiles Include="Pages\Home.razor"/>
     </ItemGroup>
 
 </Project>
