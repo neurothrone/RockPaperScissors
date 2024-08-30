@@ -1,10 +1,10 @@
+using RockPaperScissors.Console.Client.Domain;
+using RockPaperScissors.Console.Client.Utils;
 using RockPaperScissors.Core;
 using RockPaperScissors.Core.Domain;
 using RockPaperScissors.Core.Utils;
-using RockPaperScissors.ZConsole.Domain;
-using RockPaperScissors.ZConsole.Utils;
 
-namespace RockPaperScissors.ZConsole;
+namespace RockPaperScissors.Console.Client;
 
 public class ConsoleApp
 {
@@ -30,7 +30,7 @@ public class ConsoleApp
                     break;
                 case MainMenuSelection.Quit:
                 default:
-                    Console.WriteLine("Terminating program...");
+                    System.Console.WriteLine("Terminating program...");
                     return;
             }
         }
@@ -38,12 +38,12 @@ public class ConsoleApp
 
     private string GetGameInput()
     {
-        Console.WriteLine("Select your hand: (1) {0}, (2) {1}, (3) {2} or (0) to Quit.",
+        System.Console.WriteLine("Select your hand: (1) {0}, (2) {1}, (3) {2} or (0) to Quit.",
             HandHelper.GetHandSymbol(Hand.Rock),
             HandHelper.GetHandSymbol(Hand.Paper),
             HandHelper.GetHandSymbol(Hand.Scissors));
 
-        return Console.ReadLine() ?? string.Empty;
+        return System.Console.ReadLine() ?? string.Empty;
     }
 
     private GameSelection ConvertToGameSelection(string input)
@@ -70,7 +70,7 @@ public class ConsoleApp
                 case GameSelection.Quit:
                     return;
                 case GameSelection.Invalid:
-                    Console.WriteLine("Invalid input.");
+                    System.Console.WriteLine("Invalid input.");
                     continue;
                 case GameSelection.Rock:
                 case GameSelection.Paper:
@@ -97,23 +97,23 @@ public class ConsoleApp
 
     private void ProcessRound(Round round)
     {
-        Console.WriteLine("Score:\nPlayer {0} - {1} Computer", _game.PlayerScore, _game.ComputerScore);
+        System.Console.WriteLine("Score:\nPlayer {0} - {1} Computer", _game.PlayerScore, _game.ComputerScore);
 
         switch (round.GetWinner())
         {
             case Winner.Player:
-                Console.WriteLine("Player prevails with {0} over Computer with {1}",
+                System.Console.WriteLine("Player prevails with {0} over Computer with {1}",
                     HandHelper.GetHandSymbol(round.PlayerHand),
                     HandHelper.GetHandSymbol(round.ComputerHand));
                 break;
             case Winner.Computer:
-                Console.WriteLine("Computer prevails with {0} over Player with {1}",
+                System.Console.WriteLine("Computer prevails with {0} over Player with {1}",
                     HandHelper.GetHandSymbol(round.ComputerHand),
                     HandHelper.GetHandSymbol(round.PlayerHand));
                 break;
             case Winner.None:
             default:
-                Console.WriteLine("Draw! Are you even trying?");
+                System.Console.WriteLine("Draw! Are you even trying?");
                 break;
         }
     }

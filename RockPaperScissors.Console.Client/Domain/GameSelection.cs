@@ -1,4 +1,4 @@
-namespace RockPaperScissors.ZConsole.Domain;
+namespace RockPaperScissors.Console.Client.Domain;
 
 enum GameSelection
 {

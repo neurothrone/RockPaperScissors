@@ -1,7 +1,7 @@
-using RockPaperScissors.ZConsole.Services;
-using RockPaperScissors.ZConsole.Utils;
+using RockPaperScissors.Console.Client.Services;
+using RockPaperScissors.Console.Client.Utils;
 
-namespace RockPaperScissors.ZConsole.Domain;
+namespace RockPaperScissors.Console.Client.Domain;
 
 class History
 {
@@ -27,7 +27,7 @@ class History
 
         ConsoleHelper.WriteLine("History\n----------------", ConsoleColor.Yellow);
         foreach (var outcome in _history)
-            Console.WriteLine(outcome);
+            System.Console.WriteLine(outcome);
         ConsoleHelper.WriteLine("----------------", ConsoleColor.Yellow);
     }
 

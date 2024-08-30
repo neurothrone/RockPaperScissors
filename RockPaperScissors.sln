@@ -14,7 +14,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissors.Component
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissors.Core", "RockPaperScissors.Core\RockPaperScissors.Core.csproj", "{01F5B662-EF51-4E3C-B76C-E56DE61ADB0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissors.ZConsole", "RockPaperScissors.ZConsole\RockPaperScissors.ZConsole.csproj", "{20136332-A43A-480F-893E-D92CF9F6A5A7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RockPaperScissors.Console.Client", "RockPaperScissors.Console.Client\RockPaperScissors.Console.Client.csproj", "{20136332-A43A-480F-893E-D92CF9F6A5A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
